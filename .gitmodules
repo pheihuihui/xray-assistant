@@ -1,0 +1,6 @@
+[submodule "lib/Xray-core"]
+	path = lib/Xray-core
+	url = https://github.com/pheihuihui/Xray-core.git
+[submodule "lib/v2ray-config-json-schema"]
+	path = lib/v2ray-config-json-schema
+	url = https://github.com/pheihuihui/v2ray-config-json-schema.git
