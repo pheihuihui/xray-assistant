@@ -4,6 +4,7 @@ import { LogLevel } from "lib/v2ray-config-json-schema/src/log";
 import { IStrategy } from "lib/v2ray-config-json-schema/src/routing";
 import { IV2Ray } from "lib/v2ray-config-json-schema/src/v2ray";
 import { ipaddr } from "./ipaddr";
+import { server_id, server_port, server_addr } from "./serverinfo";
 
 
 let v2ray: IV2Ray = {
@@ -25,14 +26,14 @@ let v2ray: IV2Ray = {
             settings: {
                 vnext: [
                     {
-                        port: 111,
+                        port: server_port,
                         users: [
                             {
-                                "id": "aaa",
+                                "id": server_id,
                                 "alterId": 1
                             }
                         ],
-                        address: "aaa"
+                        address: server_addr
                     }
                 ]
             },
