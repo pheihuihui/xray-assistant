@@ -1,5 +1,10 @@
-import { IV2Ray, V2RayProtocol, LogLevel, APIService, IStrategy } from "../lib/v2ray-config-json-schema/src";
+import { APIService } from "lib/v2ray-config-json-schema/src/api";
+import { V2RayProtocol } from "lib/v2ray-config-json-schema/src/common";
+import { LogLevel } from "lib/v2ray-config-json-schema/src/log";
+import { IStrategy } from "lib/v2ray-config-json-schema/src/routing";
+import { IV2Ray } from "lib/v2ray-config-json-schema/src/v2ray";
 import { ipaddr } from "./ipaddr";
+
 
 let v2ray: IV2Ray = {
     stats: {

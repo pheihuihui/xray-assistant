@@ -1,5 +1,4 @@
 # generate prototypes
-
 Set-Location .\lib
 proto-loader-gen-types `
     --longs=String `
@@ -14,7 +13,6 @@ proto-loader-gen-types `
 
 
 # get wsl ip
-
 $str = "export const ipaddr = '"
 $ip = (wsl hostname -I).trim()
 $str + $ip + "'" | Out-File -Encoding utf8 ..\\src\\ipaddr.ts

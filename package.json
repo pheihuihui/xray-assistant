@@ -17,6 +17,7 @@
     "esbuild": "0.12.9",
     "fs-extra": "10.0.0",
     "ts-node": "10.0.0",
+    "tsconfig-paths": "3.9.0",
     "typescript": "4.3.4"
   },
   "dependencies": {
