@@ -107,3 +107,6 @@ dist
 lib/protos/Xray-core
 lib/protos/xray
 lib/protos/*.ts
+
+# temporary
+xrayconfig.json

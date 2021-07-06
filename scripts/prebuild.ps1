@@ -13,12 +13,25 @@ proto-loader-gen-types `
 
 # get wsl ip
 Set-Location ..\
+$dir = (Get-Location)
 $str = "export const ipaddr = '"
 $ip = (wsl hostname -I).trim()
-$str + $ip + "'" | Out-File -Encoding utf8 .\src\ipaddr.ts
+$ipaddrContent = $str + $ip + "'"
+$Utf8NoBomEncoding = New-Object System.Text.UTF8Encoding $False
+$ipaddrPath = $dir.Path + "\src\ipaddr.ts"
+[System.IO.File]::WriteAllLines($ipaddrPath, $ipaddrContent, $Utf8NoBomEncoding)
 
 # generate config.json for xray
 $jsonName = "xrayconfig.json"
+$jsonPath = $dir.Path + "\" + $jsonName
 $userName = (wsl whoami)
-ts-node .\src\config.ts --files | Out-File -Encoding utf8 $jsonName
-echo "${userName}@${ip}:/home/${userName}"
+$content = (ts-node .\src\config.ts --files)
+[System.IO.File]::WriteAllLines($jsonPath, $content, $Utf8NoBomEncoding)
+
+# copy file to wsl
+$connStr = "${userName}@${ip}:/home/${userName}/Xray-core/config.json"
+scp $jsonPath $connStr
+
+# start xray core
+$command = "/home/${userName}/Xray-core/xray"
+wsl $command
